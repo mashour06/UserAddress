@@ -174,6 +174,8 @@
         <!-- Page level custom scripts -->
         <script src="{{ asset('dashboard-assets/js/demo/chart-area-demo.js') }}"></script>
         <script src="{{ asset('dashboard-assets/js/demo/chart-pie-demo.js') }}"></script>
+        <script src="{{ asset('js/maps.js') }}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXDpoUMO334M0NTA24GwH3viVxuuAxL-A&callback=myMap"></script>
 
     </body>
 

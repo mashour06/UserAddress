@@ -12,48 +12,50 @@
             <!-- Content Row -->
         <div class="container">
             <div class="row">
+                <div class="col-4">
+                    <form method="POST" action="{{ route('postUpdatedAddress', $address->id) }}">
 
-                <form method="POST" action="{{ route('postUpdatedAddress', $address->id) }}">
+                        @if(session()->has('message'))
+                        <div class="alert alert-success">
+                            <button class="close" type="button" data-dismiss="alert">x</button>
+                            {{ session()->get('message') }}
+                        </div>
+                        @endif
+                            @csrf
+                            <div class="mb-3">
+                              <label for="" class="form-label">Address Line 1</label>
+                              <input type="text" name="address_line1" value="{{ $address->address_line1 }}" class="form-control addr" id="addr-line-1">
+                            </div>
+                            <div class="mb-3">
+                              <label for="" class="form-label">Address Line 2</label>
+                              <input type="text" name="address_line2" value="{{ $address->address_line2 }}" class="form-control addr" id="addr-line-2">
+                            </div>
+                            <div class="mb-3">
+                              <label for="" class="form-label">City</label>
+                              <input type="text" name="city" value="{{ $address->city }}" class="form-control addr" id="city">
+                            </div>
+                            <div class="mb-3">
+                              <label for="" class="form-label">District</label>
+                              <input type="text" name="district" value="{{ $address->district }}" class="form-control addr" id="district">
+                            </div>
+                            <div class="mb-3">
+                              <label for="" class="form-label">ZIP Code</label>
+                              <input type="text" name="zip" value="{{ $address->zip }}" class="form-control" id="zip">
+                            </div>
+                            <div class="mb-3">
+                              <label for="" class="form-label">Country</label>
+                              <input type="text" name="country" value="{{ $address->country }}" class="form-control addr" id="country">
+                            </div>
 
-                @if(session()->has('message'))
-                <div class="alert alert-success">
-                    <button class="close" type="button" data-dismiss="alert">x</button>
-                    {{ session()->get('message') }}
+                            <button type="submit" class="btn btn-primary">Update Address</button>
+                        </form>
                 </div>
-                @endif
-                    @csrf
-                    <div class="mb-3">
-                      <label for="" class="form-label">Address Line 1</label>
-                      <input type="text" name="address_line1" value="{{ $address->address_line1 }}" class="form-control" id="">
-                    </div>
-                    <div class="mb-3">
-                      <label for="" class="form-label">Address Line 2</label>
-                      <input type="text" name="address_line2" value="{{ $address->address_line2 }}" class="form-control" id="">
-                    </div>
-                    <div class="mb-3">
-                      <label for="" class="form-label">City</label>
-                      <input type="text" name="city" value="{{ $address->city }}" class="form-control" id="">
-                    </div>
-                    <div class="mb-3">
-                      <label for="" class="form-label">District</label>
-                      <input type="text" name="district" value="{{ $address->district }}" class="form-control" id="">
-                    </div>
-                    <div class="mb-3">
-                      <label for="" class="form-label">ZIP Code</label>
-                      <input type="text" name="zip" value="{{ $address->zip }}" class="form-control" id="">
-                    </div>
-                    <div class="mb-3">
-                      <label for="" class="form-label">Country</label>
-                      <input type="text" name="country" value="{{ $address->country }}" class="form-control" id="">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Update Address</button>
-                </form>
+                <div class="col-8">
+                    <div id="googleMap" style="width:100%;height:400px;"></div>
+                </div>
             </div>
         </div>
-        </div>
         <!-- /.container-fluid -->
-
     </div>
     <!-- End of Main Content -->
 
