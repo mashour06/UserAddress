@@ -26,18 +26,18 @@
                     @csrf
                     <div class="mb-3">
                       <label for="add-user" class="form-label">Name</label>
-                      <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="add-product">
-                      <span class="text-danger">@error('title') {{ $message }} @enderror</span>
+                      <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="">
+                      <span class="text-danger">@error('name') {{ $message }} @enderror</span>
                     </div>
                     <div class="mb-3">
                       <label for="add-user" class="form-label">Email</label>
                       <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="">
-                      <span class="text-danger">@error('price') {{ $message }} @enderror</span>
+                      <span class="text-danger">@error('email') {{ $message }} @enderror</span>
                     </div>
                     <div class="mb-3">
                       <label for="add-user" class="form-label">Password</label>
                       <input type="password" name="password" value="{{ old('password') }}" class="form-control" id="">
-                      <span class="text-danger">@error('price') {{ $message }} @enderror</span>
+                      <span class="text-danger">@error('password') {{ $message }} @enderror</span>
                     </div>
                     <button type="submit" class="btn btn-primary">Add User</button>
                 </form>

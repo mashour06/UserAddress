@@ -35,16 +35,9 @@ class UserDashboardController extends Controller
             'country' => 'required',
         ]);
 
-        $address = new Address();
-        $address->address_line1 = $request->address_line1;
-        $address->address_line2 = $request->address_line2;
-        $address->city = $request->city;
-        $address->district = $request->district;
-        $address->zip = $request->zip;
-        $address->country = $request->country;
-        $address->user_id = auth()->user()->id;
-
-        $address->save();
+        $fields = $request->all();
+        $fields['user_id'] = auth()->user()->id;
+        Address::create($fields);
         return redirect()->back()->with('message','Address Created Successfully');
     }
 
@@ -60,15 +53,24 @@ class UserDashboardController extends Controller
     }
 
     public function userPostUpdatedAddress(Request $request, $id) {
-        $address = Address::find($id);
-        $address->address_line1 = $request->address_line1;
-        $address->address_line2 = $request->address_line2;
-        $address->city = $request->city;
-        $address->district = $request->district;
-        $address->zip = $request->zip;
-        $address->country = $request->country;
 
-        $address->update();
+        $request->validate([
+            'address_line1' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'zip' => 'required',
+            'country' => 'required',
+        ]);
+
+        Address::where('id', $id)
+        ->update([
+            'address_line1' => $request->address_line1,
+            'address_line2' => $request->address_line2,
+            'city' => $request->city,
+            'zip' => $request->zip,
+            'country' => $request->country,
+        ]);
+
         return redirect()->back()->with('message','Address Updated Successfully');
     }
 

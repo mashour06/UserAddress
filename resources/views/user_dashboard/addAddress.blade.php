@@ -24,28 +24,34 @@
         @endif
             @csrf
             <div class="mb-3">
-              <label for="" class="form-label">Address Line 1</label>
+              <label for="" class="form-label">Address Line 1 *</label>
               <input type="text" name="address_line1" class="form-control" id="">
+              <span class="text-danger">@error('address_line1') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Address Line 2</label>
               <input type="text" name="address_line2" class="form-control" id="">
+              {{-- <span class="text-danger">@error('address_line2') {{ $message }} @enderror</span> --}}
             </div>
             <div class="mb-3">
-              <label for="" class="form-label">City</label>
+              <label for="" class="form-label">City *</label>
               <input type="text" name="city" class="form-control" id="">
+              <span class="text-danger">@error('city') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
-              <label for="" class="form-label">District</label>
+              <label for="" class="form-label">District *</label>
               <input type="text" name="district" class="form-control" id="">
+              <span class="text-danger">@error('district') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
-              <label for="" class="form-label">ZIP Code</label>
+              <label for="" class="form-label">ZIP Code *</label>
               <input type="text" name="zip" class="form-control" id="">
+              <span class="text-danger">@error('zip') {{ $message }} @enderror</span>
             </div>
             <div class="mb-3">
-              <label for="" class="form-label">Country</label>
+              <label for="" class="form-label">Country *</label>
               <input type="text" name="country" class="form-control" id="">
+              <span class="text-danger">@error('country') {{ $message }} @enderror</span>
             </div>
 
             <button type="submit" class="btn btn-primary">Add Address</button>

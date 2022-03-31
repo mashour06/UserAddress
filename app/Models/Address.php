@@ -16,6 +16,7 @@ class Address extends Model
         'district',
         'zip',
         'country',
+        'user_id',
     ];
 
     public function users() {

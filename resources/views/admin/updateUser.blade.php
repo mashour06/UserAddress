@@ -26,10 +26,12 @@
                     <div class="mb-3">
                       <label for="add-user" class="form-label">Name</label>
                       <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="add-user">
+                      <span class="text-danger">@error('name') {{ $message }} @enderror</span>
                     </div>
                     <div class="mb-3">
                       <label for="add-product" class="form-label">Email</label>
                       <input type="email" name="email" value="{{ $user->email }}" class="form-control" id="add-product">
+                      <span class="text-danger">@error('email') {{ $message }} @enderror</span>
                     </div>
                     <button type="submit" class="btn btn-primary">Update User</button>
                 </form>

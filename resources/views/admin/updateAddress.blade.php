@@ -25,26 +25,32 @@
                             <div class="mb-3">
                               <label for="" class="form-label">Address Line 1</label>
                               <input type="text" name="address_line1" value="{{ $address->address_line1 }}" class="form-control addr" id="addr-line-1">
+                              <span class="text-danger">@error('address_line1') {{ $message }} @enderror</span>
                             </div>
                             <div class="mb-3">
                               <label for="" class="form-label">Address Line 2</label>
                               <input type="text" name="address_line2" value="{{ $address->address_line2 }}" class="form-control addr" id="addr-line-2">
+                              <span class="text-danger">@error('address_line2') {{ $message }} @enderror</span>
                             </div>
                             <div class="mb-3">
                               <label for="" class="form-label">City</label>
                               <input type="text" name="city" value="{{ $address->city }}" class="form-control addr" id="city">
+                              <span class="text-danger">@error('city') {{ $message }} @enderror</span>
                             </div>
                             <div class="mb-3">
                               <label for="" class="form-label">District</label>
                               <input type="text" name="district" value="{{ $address->district }}" class="form-control addr" id="district">
+                              <span class="text-danger">@error('district') {{ $message }} @enderror</span>
                             </div>
                             <div class="mb-3">
                               <label for="" class="form-label">ZIP Code</label>
                               <input type="text" name="zip" value="{{ $address->zip }}" class="form-control" id="zip">
+                              <span class="text-danger">@error('zip') {{ $message }} @enderror</span>
                             </div>
                             <div class="mb-3">
                               <label for="" class="form-label">Country</label>
                               <input type="text" name="country" value="{{ $address->country }}" class="form-control addr" id="country">
+                              <span class="text-danger">@error('country') {{ $message }} @enderror</span>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Update Address</button>
