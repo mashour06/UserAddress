@@ -40,7 +40,7 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td> <a href="{{ route('updateUser', $user->id) }}" class="btn btn-primary">Update</a></td>
-                                <td><a href="{{ route('deleteUser', $user->id) }}" class="btn btn-primary">Delete</a></td>
+                                <td><a href="{{ route('deleteUser', $user->id) }}" class="btn btn-danger">Delete</a></td>
 
                             </tr>
                         @endforeach

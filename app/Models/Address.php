@@ -17,6 +17,8 @@ class Address extends Model
         'zip',
         'country',
         'user_id',
+        'latitude',
+        'longitude',
     ];
 
     public function users() {

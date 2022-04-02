@@ -1,20 +1,14 @@
 function mp_initialize() {
-
-    var latitude = document.getElementById('txtLat').value;
-    var longitude = document.getElementById('txtLng').value;
-
-    // console.log(latitude + ' ' + longitude);
-
     // Creating map object
     var map = new google.maps.Map(document.getElementById('map_canvas'), {
         zoom: 12,
-        center: new google.maps.LatLng(latitude, longitude),
+        center: new google.maps.LatLng(30.036274, 31.240967),
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
     // creates a draggable marker to the given coords
     var vMarker = new google.maps.Marker({
-        position: new google.maps.LatLng(latitude, longitude),
+        position: new google.maps.LatLng(30.036274, 31.240967),
         draggable: true
     });
 
@@ -43,20 +37,9 @@ $('#map-submit').click(function(){
         data: {
             access_key: '1ca9c2e30826158f019f16052acb1b7f',
             query: the_lat + ',' + the_lng,
-            output: 'json',
-            limit: 1,
         }
     }).done(function(data) {
-       // console.log(data);
-        let obj = JSON.parse(JSON.stringify(data));
-        // console.log(obj.data[0].name);
-        console.log(obj);
-        document.getElementById('address_line1').value = obj.data[0].name;
-        document.getElementById('address_line2').value = obj.data[0].street;
-        document.getElementById('city').value = obj.data[0].region;
-        document.getElementById('district').value = obj.data[0].county;
-        document.getElementById('zip').value = obj.data[0].postal_code;
-        document.getElementById('country').value = obj.data[0].country;
+        console.log(data);
     });
 });
 

@@ -45,12 +45,15 @@ class AdminController extends Controller
     public function postUpdatedUser(Request $request, $id) {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
         ]);
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->update();
+
+        User::where('id', $id)
+        ->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
         return redirect()->back()->with('message','User Updated Successfully');
     }
 
@@ -66,7 +69,6 @@ class AdminController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
         ]);
-
 
         $fields = $request->all();
         $fields['password'] = Hash::make($request->password);
@@ -92,6 +94,7 @@ class AdminController extends Controller
             'district' => 'required',
             'zip' => 'required',
             'country' => 'required',
+
         ]);
 
         Address::where('id', $id)
@@ -99,8 +102,11 @@ class AdminController extends Controller
             'address_line1' => $request->address_line1,
             'address_line2' => $request->address_line2,
             'city' => $request->city,
+            'district' => $request->district,
             'zip' => $request->zip,
             'country' => $request->country,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
         ]);
 
         return redirect()->back()->with('message','Address Updated Successfully');

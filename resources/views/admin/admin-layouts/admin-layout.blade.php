@@ -22,7 +22,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="mp_initialize();">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -175,7 +175,9 @@
         <script src="{{ asset('dashboard-assets/js/demo/chart-area-demo.js') }}"></script>
         <script src="{{ asset('dashboard-assets/js/demo/chart-pie-demo.js') }}"></script>
         <script src="{{ asset('js/maps.js') }}"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXDpoUMO334M0NTA24GwH3viVxuuAxL-A&callback=myMap"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmB0LDaMj2JkSi0SZwc0DKExwE_dCCXQk&v=weekly" async></script>
+        <script src="{{ asset('js/maps.js') }}"></script>
 
     </body>
 
