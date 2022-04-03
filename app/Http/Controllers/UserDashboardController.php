@@ -35,10 +35,9 @@ class UserDashboardController extends Controller
             'country' => 'required',
         ]);
 
-        $fields = $request->all();
-        $fields['user_id'] = auth()->user()->id;
-        Address::create($fields);
-        return redirect()->back()->with('message','Address Created Successfully');
+        auth()->user()->addresses()->create($request->all());
+
+        return redirect()->back()->with('message', 'Successfully created address');
     }
 
     public function userShowAddresses() {
@@ -62,15 +61,7 @@ class UserDashboardController extends Controller
             'country' => 'required',
         ]);
 
-        Address::where('id', $id)
-        ->update([
-            'address_line1' => $request->address_line1,
-            'address_line2' => $request->address_line2,
-            'city' => $request->city,
-            'district' => $request->district,
-            'zip' => $request->zip,
-            'country' => $request->country,
-        ]);
+        Address::where('id', $id)->update($request->all());
 
         return redirect()->back()->with('message','Address Updated Successfully');
     }

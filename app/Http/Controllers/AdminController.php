@@ -48,11 +48,9 @@ class AdminController extends Controller
             'email' => 'required|email|unique:users,email',
         ]);
 
-        User::where('id', $id)
-        ->update([
-            'name' => $request->name,
-            'email' => $request->email,
-        ]);
+        // dd($request);
+
+        User::where('id', $id)->update($request->except('_token'));
 
         return redirect()->back()->with('message','User Updated Successfully');
     }
@@ -97,17 +95,7 @@ class AdminController extends Controller
 
         ]);
 
-        Address::where('id', $id)
-        ->update([
-            'address_line1' => $request->address_line1,
-            'address_line2' => $request->address_line2,
-            'city' => $request->city,
-            'district' => $request->district,
-            'zip' => $request->zip,
-            'country' => $request->country,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
-        ]);
+        Address::where('id', $id)->update($request->all());
 
         return redirect()->back()->with('message','Address Updated Successfully');
     }

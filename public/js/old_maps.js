@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function mp_initialize() {
 
     var latitude = document.getElementById('txtLat').value;
     var longitude = document.getElementById('txtLng').value;
@@ -33,8 +33,7 @@ $(document).ready(function(){
 
     // adds the marker on the map
     vMarker.setMap(map);
-});
-
+}
 
 $('#map-submit').click(function(){
     let the_lat = $("#txtLat").val();

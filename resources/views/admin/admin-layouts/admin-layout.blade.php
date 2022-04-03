@@ -19,10 +19,11 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('dashboard-assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
 
 </head>
 
-<body id="page-top" onload="mp_initialize();">
+<body id="page-top" {{--onload="mp_initialize();"--}}>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
